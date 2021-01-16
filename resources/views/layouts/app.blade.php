@@ -8,6 +8,10 @@
     <title>{{ config('app.name'), 'Larablog' }}</title>
 </head>
 <body>
-    @yield('content')
+    @include('inc.navbar')
+    <div class="container top">
+        @yield('content')
+    </div>
+   
 </body>
 </html>
