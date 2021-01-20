@@ -2,3 +2,17 @@
 .top{
     margin-top: 4rem;
 }
+
+.mceEditor table {
+    max-width:none; /* Bug in computation of fullscreen */
+    }
+    
+    .mceEditor table.mceLayout {
+    width:100% !important;
+    height:auto !important;
+    } 
+    
+    table.mceToolbar { float:left; }
+    body .mceToolbar div {
+    white-space:normal;
+    }
