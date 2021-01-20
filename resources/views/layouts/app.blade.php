@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>{{ config('app.name'), 'Larablog' }}</title>
 </head>
+</head>
 <body>
     @include('inc.navbar')
     <div class="container top">
+        @include('inc.messages')
         @yield('content')
     </div>
    
