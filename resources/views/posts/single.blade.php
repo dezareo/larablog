@@ -8,5 +8,13 @@
     <hr>
     <small>Written on {{ $post->created_at }}</small>
     <br>
-    <a href="/posts" class="btn btn-outline-secondary btn-sm mt-1">Go Back</a>
+    <div class="row ml-1">
+        <a href="/posts" class="btn btn-outline-secondary btn-sm mt-1">Go Back</a> 
+        <a href="/posts/{{ $post->id }}/edit" class="btn btn-outline-success btn-sm mt-1 ml-2">Edit</a>
+        {!! Form::open(['action' => ['App\Http\Controllers\PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'ml-auto']) !!}
+            {{ Form::hidden('_method', 'DELETE') }}
+            {{ Form::submit('Delete', ['class' => 'btn btn-outline-danger btn-sm mt-1']) }}
+        {!! Form::close() !!}
+    </div>
+    
 @endsection
