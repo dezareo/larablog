@@ -7,6 +7,7 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -74,6 +75,12 @@ class PostsController extends Controller
     {
         //
         $post = Post::find($id);
+
+        //Check for the corect user
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+
         return view('posts.edit')->with('post', $post);
     }
 
@@ -110,6 +117,12 @@ class PostsController extends Controller
     {
         //Delete Post
         $post = Post::find($id);
+
+        //Check for the corect user
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+
         $post->delete();
 
         return redirect('/posts')->with('success', 'Post Deleted');
